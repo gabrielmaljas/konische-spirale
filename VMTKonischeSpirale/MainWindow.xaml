@@ -1,0 +1,46 @@
+﻿<Window x:Class="VMTKonischeSpirale.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VMTKonischeSpirale"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800">
+    <Grid x:Name="Body_Grid" Background="#FF1A1A1A">
+        <Grid x:Name="Inpuffield_Grid" Background="#FF6C6C6C" Width="223" HorizontalAlignment="Left">
+            <Label x:Name="Inputfield_Label" Content="Inputfield&#xD;&#xA;" HorizontalAlignment="Center" Height="32" VerticalAlignment="Top" Width="112" Margin="0,10,0,0" HorizontalContentAlignment="Center" FontWeight="Bold" FontSize="16"/>
+            <Label x:Name="X_Label" Content="X&#xD;&#xA;X" HorizontalAlignment="Left" Height="22" VerticalAlignment="Top" Width="21" Margin="10,60,0,0" FontWeight="Bold"/>
+            <TextBox x:Name="X_Input" HorizontalAlignment="Left" Height="22" Margin="90,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" Background="#FFB8B8B8"/>
+            <Label x:Name="Y_Label" Content="Y" HorizontalAlignment="Left" Height="27" VerticalAlignment="Top" Width="21" Margin="10,87,0,0" FontWeight="Bold"/>
+            <TextBox x:Name="Y_Input" HorizontalAlignment="Left" Height="22" Margin="90,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" Background="#FFB8B8B8"/>
+            <Label x:Name="StartRadius_Label" Content="Startradius" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="72" Margin="10,112,0,0" FontWeight="Bold"/>
+            <TextBox x:Name="StartRadius_Input" HorizontalAlignment="Left" Height="22" Margin="90,114,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" Background="#FFB8B8B8"/>
+            <Label x:Name="MaxH_Label" Content="Max Höhe" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="72" Margin="10,139,0,0" FontWeight="Bold"/>
+            <TextBox x:Name="MaxH_Input" HorizontalAlignment="Left" Height="22" Margin="90,141,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" Background="#FFB8B8B8"/>
+            <Label x:Name="MinR_Label" Content="Min Radius" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="75" Margin="10,166,0,0" FontWeight="Bold"/>
+            <TextBox x:Name="MinR_Input" HorizontalAlignment="Left" Height="22" Margin="90,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" Background="#FFB8B8B8"/>
+            <Label x:Name="Steigung_Label" Content="Steigung" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="75" Margin="10,193,0,0" FontWeight="Bold"/>
+            <TextBox x:Name="Steigung_Input" HorizontalAlignment="Left" Height="22" Margin="90,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" Background="#FFB8B8B8"/>
+            <Label x:Name="Meter" Content="m" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="22" Margin="159,60,0,0" FontWeight="Bold"/>
+            <Label x:Name="Meter_Copy" Content="m" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="22" Margin="159,86,0,0" FontWeight="Bold"/>
+            <Label x:Name="Meter_Copy1" Content="m" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="22" Margin="159,114,0,0" FontWeight="Bold"/>
+            <Label x:Name="Meter_Copy2" Content="m" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="22" Margin="159,139,0,0" FontWeight="Bold"/>
+            <Label x:Name="Meter_Copy3" Content="m" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="22" Margin="159,168,0,0" FontWeight="Bold"/>
+            <ComboBox x:Name="Steigung_Unit" HorizontalAlignment="Left" Height="19" Margin="159,198,0,0" VerticalAlignment="Top" Width="56" Background="#FFB8B8B8" Foreground="Black" FontSize="9" FontWeight="Bold">
+                <ComboBoxItem x:Name="Procent">%</ComboBoxItem>
+                <ComboBoxItem x:Name="MillimeterPerMeter" IsSelected="True">mm/m</ComboBoxItem>
+                <ComboBoxItem x:Name="Gon">gon</ComboBoxItem>
+                <ComboBoxItem x:Name="Degrees">°</ComboBoxItem>
+            </ComboBox>
+            <Button x:Name="Save" Click="SaveSettings" Content="Save" HorizontalAlignment="Left" Height="32" Margin="20,244,0,0" VerticalAlignment="Top" Width="84" FontWeight="Bold"/>
+            <Button x:Name="Calc" Click="Calculate" Content="Calculate" HorizontalAlignment="Left" Height="32" Margin="122,244,0,0" VerticalAlignment="Top" Width="84" FontWeight="Bold"/>
+        </Grid>
+        <Canvas x:Name="canvas" Margin="228,0,0,0" Background="#FFE8E8E8"/>
+        <TextBox x:Name="CsvInput" HorizontalAlignment="Left" Height="22" Margin="100,348,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" Background="#FFB8B8B8"/>
+        <Label x:Name="CsvExport_Label" Content="File Name" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="83" Margin="10,345,0,0" FontWeight="Bold"/>
+        <Label x:Name="CsvExport_Header" Content="CSV Export" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="74" Margin="76,295,0,0" FontWeight="Bold"/>
+        <Button x:Name="Export" Click="ExportCsv" Content="Export" HorizontalAlignment="Left" Height="32" Margin="66,375,0,0" VerticalAlignment="Top" Width="84" FontWeight="Bold"/>
+        <TextBox x:Name="Path_Input" HorizontalAlignment="Left" Height="22" Margin="100,323,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="109" Background="#FFB8B8B8"/>
+        <Label x:Name="Path_Label" Content="Path" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="83" Margin="12,320,0,0" FontWeight="Bold"/>
+    </Grid>
+</Window>
